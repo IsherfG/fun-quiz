@@ -1,0 +1,27 @@
+/* src/components/Footer.css */
+
+.app-footer {
+  /* Use a top border to separate it from the main content */
+  border-top: 4px double var(--border-color);
+  padding: 2rem;
+  margin-top: 3rem; /* Add space above the footer */
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  opacity: 0.8; /* Make the text slightly less prominent */
+}
+
+.footer-content a {
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-color);
+  transition: color 0.2s;
+}
+
+.footer-content a:hover {
+  color: var(--secondary-accent);
+  border-bottom-color: var(--secondary-accent);
+}
