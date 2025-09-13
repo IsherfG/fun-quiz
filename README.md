@@ -1,6 +1,7 @@
 # FanQuiz Maker 🚀
 
-![FanQuiz Maker Screenshot](https://i.imgur.com/your-screenshot-url.png) 
+![FanQuiz Maker Screenshot]<img width="1087" height="862" alt="Screenshot 2025-09-14 at 1 21 27 AM" src="https://github.com/user-attachments/assets/fe3e4aa7-8dba-4a82-b639-8abb6fdad485" />
+
 <!-- **Action Required:** Upload your project screenshot to Imgur and paste the 'Direct Link' here -->
 
 A full-stack, serverless web application that allows users to create, share, and play custom multiple-choice fan quizzes. This project was built from the ground up to be a polished, responsive, and feature-rich portfolio piece.
@@ -66,7 +67,7 @@ To get a local copy up and running, follow these simple steps.
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/your-github-username/fanquiz-maker.git
+    git clone https://github.com/IsherfG/fun-quiz.git
     cd fanquiz-maker
     ```
     <!-- **Action Required:** Replace this with your actual repository URL -->
@@ -97,7 +98,7 @@ To get a local copy up and running, follow these simple steps.
 
 ## Contact
 
-Your Name - [@YourTwitterHandle](https://twitter.com/YourTwitterHandle) - your.email@example.com
+Isherf - [@IsherfG](https://twitter.com/IsherfG) - isherftheg@gmail.com
 
-Project Link: [https://github.com/your-github-username/fanquiz-maker](https://github.com/your-github-username/fanquiz-maker)
+Project Link: [https://github.com/IsherfG/fun-quiz](https://github.com/IsherfG/fun-quiz)
 <!-- **Action Required:** Replace all placeholder contact info -->
