@@ -1,80 +1,26 @@
 /* src/components/TakeQuiz.css */
-.quiz-container {
-  text-align: center;
-}
-.quiz-title {
-  font-size: 2rem;
-  color: var(--primary-accent);
-  margin-bottom: 2rem;
-}
-.progress-text {
-  color: var(--border-color);
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-}
-.question-text {
-  font-size: 1.2rem;
-  line-height: 1.5;
-  margin-bottom: 2rem;
-  min-height: 60px;
-}
-.answer-options {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.answer-btn {
-  background: transparent;
-  border: 2px solid var(--text-color);
-  color: var(--text-color);
-  padding: 15px;
-  font-family: inherit;
-  font-size: 0.9rem;
-  text-align: left;
-}
-.answer-btn:hover {
-  background: var(--text-color);
-  color: var(--card-bg);
-}
-.score-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-.score-section h2 {
-  font-size: 2.5rem;
-  color: var(--primary-accent);
-}
-.score-section p {
-  font-size: 1.5rem;
-  color: var(--secondary-accent);
-}
-.play-again-btn {
-  margin-top: 1rem;
-  background: var(--primary-accent);
-  color: var(--text-color);
-  border: 2px solid var(--primary-accent);
-}
-.play-again-btn:hover {
-  background: transparent;
-  color: var(--primary-accent);
-}
-/* --- Styles for Question Image and Start Screen --- */
-.question-image-container {
-  max-width: 100%;
-  margin: 0 auto 1.5rem auto;
-  border: 4px double var(--border-color);
-}
 
-.question-image-container img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: contain; /* Ensures the whole image is visible without stretching */
-}
+.quiz-container { text-align: center; }
+.quiz-title { font-size: 2rem; color: var(--primary-accent); margin-bottom: 2rem; }
+.progress-text { color: var(--border-color); margin-bottom: 1rem; font-size: 0.9rem; }
+.question-text { font-size: 1.2rem; line-height: 1.5; margin-bottom: 2rem; min-height: 60px; }
+.answer-options { display: flex; flex-direction: column; gap: 1rem; }
+.answer-btn { background: transparent; border: 2px solid var(--text-color); color: var(--text-color); padding: 15px; font-family: inherit; font-size: 0.9rem; text-align: left; }
+.answer-btn:hover { background: var(--text-color); color: var(--card-bg); }
+.score-section { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.score-section h2 { font-size: 2.5rem; color: var(--primary-accent); }
+.score-section p { font-size: 1.5rem; color: var(--secondary-accent); }
+.play-again-btn { margin-top: 1rem; background: var(--primary-accent); color: var(--text-color); border: 2px solid var(--primary-accent); }
+.play-again-btn:hover { background: transparent; color: var(--primary-accent); }
+.question-image-container { max-width: 100%; margin: 0 auto 1.5rem auto; border: 4px double var(--border-color); }
+.question-image-container img { display: block; width: 100%; height: auto; max-height: 400px; object-fit: contain; }
+.start-screen { text-align: center; }
 
-.start-screen {
-  text-align: center;
+/* --- Media Queries for Mobile Responsiveness --- */
+@media (max-width: 480px) {
+  .quiz-title { font-size: 1.6rem; }
+  .question-text { font-size: 1.1rem; }
+  .answer-btn { font-size: 0.8rem; padding: 12px; }
+  .score-section h2 { font-size: 2rem; }
+  .score-section p { font-size: 1.2rem; }
 }
