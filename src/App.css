@@ -1,22 +1,78 @@
 /* src/App.css */
 
-.app-wrapper { position: relative; overflow: hidden; }
-.app-content-wrapper { position: relative; z-index: 2; }
+.app-wrapper {
+  position: relative;
+  /* --- THE FIX: This prevents any horizontal scrolling --- */
+  overflow-x: hidden;
+}
+.app-content-wrapper {
+  position: relative;
+  z-index: 2;
+}
 
 /* --- Grid Background --- */
-.background-grid { width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1; background-size: 50px 50px; background-image: linear-gradient(to right, var(--border-color) 1px, transparent 1px), linear-gradient(to bottom, var(--border-color) 1px, transparent 1px); opacity: 0.15; transition: opacity 0.3s; }
-.theme-dark .background-grid { opacity: 0.3; transform: perspective(400px) rotateX(50deg); }
+.background-grid {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+  opacity: 0.15;
+  transition: opacity 0.3s;
+}
+
+.theme-dark .background-grid {
+  opacity: 0.3;
+  transform: perspective(400px) rotateX(50deg);
+}
 
 /* --- Header --- */
-.app-header { background-color: var(--card-bg); border: 4px double var(--border-color); padding: 1rem 2rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; }
-.app-title { font-size: 1.5rem; color: var(--secondary-accent); }
-.app-nav a { color: var(--text-color); text-decoration: none; font-size: 1rem; margin-left: 2rem; padding-bottom: 5px; border-bottom: 3px solid transparent; }
-.app-nav a:hover { color: var(--secondary-accent); }
-.app-nav a.active { color: var(--secondary-accent); border-bottom-color: var(--primary-accent); }
-.theme-toggle-button { background: var(--secondary-accent); color: var(--button-text-color); border: 2px solid var(--secondary-accent); white-space: nowrap; }
+.app-header {
+  background-color: var(--card-bg);
+  border: 4px double var(--border-color);
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.app-title {
+  font-size: 1.5rem;
+  color: var(--secondary-accent);
+}
+.app-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  margin-left: 2rem;
+  padding-bottom: 5px;
+  border-bottom: 3px solid transparent;
+}
+.app-nav a:hover {
+  color: var(--secondary-accent);
+}
+.app-nav a.active {
+  color: var(--secondary-accent);
+  border-bottom-color: var(--primary-accent);
+}
+.theme-toggle-button {
+  background: var(--secondary-accent);
+  color: var(--button-text-color);
+  border: 2px solid var(--secondary-accent);
+  white-space: nowrap;
+}
 
 /* --- Main Content Area --- */
-.app-content { background-color: var(--card-bg); border: 4px double var(--border-color); padding: 2rem; }
+.app-content {
+  background-color: var(--card-bg);
+  border: 4px double var(--border-color);
+  padding: 2rem;
+}
 
 /* --- Media Queries for Responsiveness --- */
 /* Tablet */

@@ -7,7 +7,7 @@
 .question-card h4 { color: var(--secondary-accent); margin-top: 0; margin-bottom: 1.5rem; text-align: center; }
 .question-card label { display: block; margin-bottom: 1rem; font-size: 0.8rem; text-align: left; }
 .image-url-input { margin-top: 1rem; margin-bottom: 2rem; text-align: center; font-size: 0.8rem; }
-.helper-text { font-size: 0.75rem; text-align: center; opacity: 0.7; margin: -1.5rem 0 2rem 0; padding: 0 1rem; }
+.helper-text { font-size: 0.5rem; text-align: center; opacity: 0.7; margin: -1.5rem 0 2rem 0; padding: 0 1rem; }
 .answer-option-wrapper input { padding: 15px 20px; }
 .options-container { display: flex; flex-direction: column; gap: 15px; margin-bottom: 15px; }
 .answer-option-wrapper { display: flex; align-items: center; gap: 10px; }
@@ -30,7 +30,27 @@
 .url-display { display: flex; gap: 10px; margin-top: 1rem; }
 .url-display button { background: var(--secondary-accent); color: var(--button-text-color); border: 2px solid var(--secondary-accent); }
 .url-display button:hover { background: transparent; color: var(--secondary-accent); }
+.quiz-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
 
+.quiz-options label {
+  font-size: 0.6rem;
+  margin: 0;
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.quiz-options input[type="checkbox"] {
+  width: 20px; /* Override default width */
+  height: 20px;
+  cursor: pointer;
+}
 /* --- Media Queries for Mobile Responsiveness --- */
 @media (max-width: 480px) {
   .quiz-title-input { max-width: 100%; }
