@@ -25,7 +25,7 @@ function App() {
 
       <div className="app-content-wrapper">
         <header className="app-header">
-          <h1 className="app-title">FanQuiz Maker</h1>
+          <h1 className="app-title">Quiz Maker</h1>
           <nav className="app-nav">
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>HOME</NavLink>
             <NavLink to="/create" className={({ isActive }) => (isActive ? 'active' : '')}>CREATE</NavLink>
