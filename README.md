@@ -1,8 +1,8 @@
-# FanQuiz Maker 🚀
+# Quiz Maker 🚀
 
-<img width="1087" height="862" alt="A screenshot of the FanQuiz Maker application showing the quiz creation interface in light mode." src="https://github.com/user-attachments/assets/fe3e4aa7-8dba-4a82-b639-8abb6fdad485" />
+<img width="1087" height="862" alt="A screenshot of the Quiz Maker application showing the quiz creation interface in light mode." src="https://github.com/user-attachments/assets/fe3e4aa7-8dba-4a82-b639-8abb6fdad485" />
 
-A full-stack, serverless web application that allows users to create, share, and play custom multiple-choice fan quizzes. This project was built from the ground up to be a polished, responsive, and feature-rich portfolio piece.
+A full-stack, serverless web application that allows users to create, share, and play custom multiple-choice quizzes. This project was built from the ground up to be a polished, responsive, and feature-rich portfolio piece.
 
 **Live Demo:** [**https://fun-quiz-beryl.vercel.app/**](https://fun-quiz-beryl.vercel.app/)
 
