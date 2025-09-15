@@ -1,8 +1,8 @@
 import React from 'react';
-import './Footer.css'; // We'll create this file next
+import './Footer.css'; 
 
 function Footer() {
-  const currentYear = new Date().getFullYear(); // Automatically gets the current year
+  const currentYear = new Date().getFullYear(); 
 
   return (
     <footer className="app-footer">
@@ -24,6 +24,5 @@ function Footer() {
   );
 }
 
-// Don't forget to replace the placeholder GitHub links with your actual ones!
 
 export default Footer;

@@ -5,11 +5,11 @@ const ThemeContext = createContext();
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-  // Try to get the theme from localStorage, or default to 'light'
+
   const [theme, setTheme] = useState(() => localStorage.getItem('quizAppTheme') || 'light');
 
   useEffect(() => {
-    // Save the theme to localStorage whenever it changes
+
     localStorage.setItem('quizAppTheme', theme);
   }, [theme]);
 
@@ -22,4 +22,4 @@ export const ThemeProvider = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   );
-};
+};f

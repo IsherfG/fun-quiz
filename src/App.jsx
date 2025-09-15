@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import { useTheme } from './context/ThemeContext';
-
-// Import components
 import Home from './components/Home.jsx';
 import QuizBuilder from './components/QuizBuilder.jsx';
 import TakeQuiz from './components/TakeQuiz.jsx';
 import Footer from './components/Footer.jsx';
-
-// Import CSS files
 import './App.css';
 
 function App() {
@@ -20,7 +16,6 @@ function App() {
 
   return (
     <div className={`app-wrapper theme-${theme}`}>
-      {/* THIS IS THE NEW, SIMPLER BACKGROUND ELEMENT */}
       <div className="background-grid"></div>
 
       <div className="app-content-wrapper">

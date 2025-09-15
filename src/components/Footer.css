@@ -1,17 +1,16 @@
-/* src/components/Footer.css */
 
 .app-footer {
-  /* Use a top border to separate it from the main content */
+
   border-top: 4px double var(--border-color);
   padding: 2rem;
-  margin-top: 3rem; /* Add space above the footer */
+  margin-top: 3rem; 
   text-align: center;
 }
 
 .footer-content p {
   margin: 0.5rem 0;
   font-size: 0.8rem;
-  opacity: 0.8; /* Make the text slightly less prominent */
+  opacity: 0.8; 
 }
 
 .footer-content a {

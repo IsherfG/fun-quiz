@@ -9,11 +9,7 @@ function QuizBuilder() {
     { questionText: '', imageUrl: '', options: ['', '', '', ''], correctAnswer: 0 },
   ]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  
-  // --- 1. NEW STATE for the retake option ---
-  // Default to 'false' to match our current "no cheating" rule
   const [allowRetakes, setAllowRetakes] = useState(false);
-
   const [isSaving, setIsSaving] = useState(false);
   const [generatedUrl, setGeneratedUrl] = useState('');
   const [copyButtonText, setCopyButtonText] = useState('Copy URL');
@@ -26,10 +22,28 @@ function QuizBuilder() {
   const handleCorrectAnswerChange = (optionIndex) => { const newQuestions = [...questions]; newQuestions[currentQuestionIndex].correctAnswer = optionIndex; setQuestions(newQuestions); };
   const handleAddQuestion = () => { const newQuestion = { questionText: '', imageUrl: '', options: ['', '', '', ''], correctAnswer: 0 }; setQuestions([...questions, newQuestion]); setCurrentQuestionIndex(questions.length); };
   const handleCopyUrl = () => { navigator.clipboard.writeText(generatedUrl).then(() => { setCopyButtonText('Copied!'); setTimeout(() => setCopyButtonText('Copy URL'), 2000); }); };
+  const handleAllowRetakesChange = (event) => { setAllowRetakes(event.target.checked); };
+  
+  // --- NEW: The function to handle deleting a question ---
+  const handleDeleteQuestion = () => {
+    // Prevent deleting the very last question
+    if (questions.length <= 1) {
+      alert("You can't delete the only question!");
+      return;
+    }
 
-  // --- 2. NEW event handler for the checkbox ---
-  const handleAllowRetakesChange = (event) => {
-    setAllowRetakes(event.target.checked);
+    // Confirm with the user before deleting
+    if (window.confirm("Are you sure you want to delete this question?")) {
+      // Filter out the question at the current index
+      const newQuestions = questions.filter((_, index) => index !== currentQuestionIndex);
+      setQuestions(newQuestions);
+      
+      // Adjust the current index to avoid errors
+      // If we deleted the last question, move to the new last question
+      if (currentQuestionIndex >= newQuestions.length) {
+        setCurrentQuestionIndex(newQuestions.length - 1);
+      }
+    }
   };
 
   const handleSaveQuiz = async () => {
@@ -38,13 +52,7 @@ function QuizBuilder() {
     setIsSaving(true);
     setGeneratedUrl('');
     try {
-      const quizData = {
-        title: quizTitle,
-        questions: questions,
-        createdAt: serverTimestamp(),
-        // --- 3. ADD the new option to the data we save ---
-        allowRetakes: allowRetakes,
-      };
+      const quizData = { title: quizTitle, questions: questions, createdAt: serverTimestamp(), allowRetakes: allowRetakes };
       const docRef = await addDoc(collection(db, 'quizzes'), quizData);
       const fullUrl = `${window.location.origin}/quiz/${docRef.id}`;
       setGeneratedUrl(fullUrl);
@@ -77,20 +85,23 @@ function QuizBuilder() {
           ))}
         </div>
       </div>
-      <div className="question-navigation"><button onClick={handlePrevious} disabled={isSaving || currentQuestionIndex === 0}>PREV</button><span className="question-progress">{currentQuestionIndex + 1} / {questions.length}</span><button onClick={handleNext} disabled={isSaving || currentQuestionIndex === questions.length - 1}>NEXT</button></div>
       
-      {/* --- 4. NEW UI for the checkbox option --- */}
-      <div className="quiz-options">
-        <input
-          type="checkbox"
-          id="allowRetakes"
-          checked={allowRetakes}
-          onChange={handleAllowRetakesChange}
-          disabled={isSaving}
-        />
-        <label htmlFor="allowRetakes">Allow users to retake this quiz multiple time</label>
+      {/* --- UI UPDATED: Added the Delete button --- */}
+      <div className="question-navigation">
+        <button onClick={handlePrevious} disabled={isSaving || currentQuestionIndex === 0}>PREV</button>
+        <div className="question-nav-center">
+          <span className="question-progress">{currentQuestionIndex + 1} / {questions.length}</span>
+          <button onClick={handleDeleteQuestion} className="delete-question-btn" disabled={isSaving || questions.length <= 1}>
+            DELETE
+          </button>
+        </div>
+        <button onClick={handleNext} disabled={isSaving || currentQuestionIndex === questions.length - 1}>NEXT</button>
       </div>
 
+      <div className="quiz-options">
+        <input type="checkbox" id="allowRetakes" checked={allowRetakes} onChange={handleAllowRetakesChange} disabled={isSaving} />
+        <label htmlFor="allowRetakes">Allow users to retake this quiz</label>
+      </div>
       <div className="builder-buttons"><button onClick={handleAddQuestion} disabled={isSaving}>Add New Question</button><button onClick={handleSaveQuiz} className="save-button" disabled={isSaving}>{isSaving ? 'SAVING...' : 'Save Quiz'}</button></div>
       {generatedUrl && (<div className="generated-url-container"><h4>Quiz Saved Successfully!</h4><div className="url-display"><input type="text" value={generatedUrl} readOnly /><button onClick={handleCopyUrl}>{copyButtonText}</button></div></div>)}
     </div>

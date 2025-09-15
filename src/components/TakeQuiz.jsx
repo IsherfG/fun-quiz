@@ -21,7 +21,6 @@ function TakeQuiz() {
   useEffect(() => {
     const fetchAndCheckQuiz = async () => {
       try {
-        // --- LOGIC RE-ORDERED: Fetch from Firebase FIRST ---
         const docRef = doc(db, 'quizzes', quizId);
         const docSnap = await getDoc(docRef);
 
@@ -33,20 +32,15 @@ function TakeQuiz() {
 
         const fetchedQuizData = docSnap.data();
 
-        // --- Now, check the rule and THEN check localStorage ---
-        // If allowRetakes is false (or undefined for older quizzes), check for completion
         if (fetchedQuizData.allowRetakes === false) {
           const results = JSON.parse(localStorage.getItem('quizAppResults')) || {};
           if (results[quizId]) {
-            // Quiz is NOT retakeable AND has been completed
             setPastResult(results[quizId]);
             setIsCompleted(true);
           } else {
-            // Quiz is NOT retakeable and has NOT been completed
             setQuizData(fetchedQuizData);
           }
         } else {
-          // Quiz IS retakeable, so we can always take it
           setQuizData(fetchedQuizData);
         }
 
@@ -107,7 +101,7 @@ function TakeQuiz() {
   if (loading) { return (<div className="quiz-container"><h2 className="quiz-title">LOADING QUIZ...</h2></div>); }
   if (error) { return (<div className="quiz-container"><h2 className="quiz-title">ERROR</h2><p className="question-text">{error}</p><Link to="/"><button className="home-cta-button">Back to Home</button></Link></div>); }
   if (isCompleted && pastResult) { return (<div className="quiz-container"><div className="score-section"><h2>QUIZ ALREADY TAKEN</h2><p>You previously completed "{pastResult.title}" and scored:</p><p className="final-score">{pastResult.score} / {pastResult.total}</p><Link to="/"><button className="play-again-btn">BACK TO HOME</button></Link></div></div>); }
-  
+
   const activeQuestion = quizData?.questions[currentQuestion];
   if (!activeQuestion) { return (<div className="quiz-container"><h2 className="quiz-title">LOADING QUIZ...</h2></div>); }
 
